@@ -100,9 +100,7 @@ p {
     // General hover.
     function general_hover (frame, border, lining, inner) {
         $(frame) .hover ( function () {
-                                $(lining, this) .animate (
-                                        { 'background-color' : jQuery.Color([0, 0, 0, 0.2]) }
-                                        );
+                                $(lining, this) .fadeTo ('fast', 1.0);
                                 $(border, this) .animate (
                                         { 'border-color': jQuery.Color([0, 0, 0, 0.9]) }
                                         , 'fast'
@@ -115,9 +113,7 @@ p {
                                         );
                             }
                             , function () {
-                                $(lining, this) .animate (
-                                        { 'background-color' : jQuery.Color([0, 0, 0, 0.2]) }
-                                        );
+                                $(lining, this) .fadeTo ('slow', 0.8);
                                 $(border, this) .animate (
                                         { 'border-color': jQuery.Color([0, 0, 0, 0.6]) }
                                         , 'slow'
