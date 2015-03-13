@@ -83,6 +83,10 @@ article {
     pointer-events: none;
 }
 
+.caption {
+    pointer-events: auto;
+}
+
 p {
     color: white;
     text-shadow: black 0.1em 0.1em 0.2em
@@ -122,7 +126,7 @@ p {
                                         , 'fast'
                                         );
                                 $(inner, this) .animate (
-                                        { 'opacity': 1.0
+                                        { 'opacity': 0.9
                                         , 'text-shadow': 'black 0.1em 0.1em 0.2em'
                                         }
                                         , 'fast'
@@ -176,18 +180,17 @@ p {
 
     // Initialization.
     $ (document) .ready ( function () {
+
         // Resize activator.
         $ (window) .resize();
 
         // Article hover listener.
         general_hover ('article', '.underlay .border', '.underlay .lining', 'h4');
-        // Article hover activator.
         $('article') .mouseleave();
 
         // Paragraph hover listener.
-        general_hover ('article span.caption', '', '', 'p');
-        // Paragraph hover activator;
-        $('article span.caption') .mouseleave();
+        general_hover ('article .caption', '', '', 'p');
+        $('article .caption') .mouseleave();
 
         // Link.
         general_hover ('article span.link', 'a', 'a', '');
