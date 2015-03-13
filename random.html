@@ -27,17 +27,21 @@ article {
     display: inline-block;
     /* position: absolute; */
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid #303030;
     padding: 0px;
 
 }
 
 .link a {
+    display: inline-block;
+
     border-style: solid;
     border-width: 1px;
     padding: 1px 3px;
-    display: inline-block;
+
     color: inherit;
+
+    pointer-events: auto;
 }
 
 .link a:hover {
@@ -54,7 +58,7 @@ article {
 
 .underlay .lining {
     position: relative;
-    background: #303030;
+    background-color: #303030;
 }
 
 .underlay .border {
@@ -63,11 +67,15 @@ article {
     border-width: 2px;
     border-style: solid;
     border-color: rgba( 0, 0, 0, 1.0 );
+
+    pointer-events: none;
 }
 
 .content {
     position: relative;
     padding: 20px;
+
+    pointer-events: none;
 }
 
 p {
@@ -101,8 +109,11 @@ p {
     function general_hover (frame, border, lining, inner) {
         $(frame) .hover ( function () {
                                 $(lining, this) .fadeTo ('fast', 1.0);
+                                $(lining, this) .animate (
+                                        { 'background-color' : jQuery.Color([128, 128, 128, 0.1]) }
+                                        );
                                 $(border, this) .animate (
-                                        { 'border-color': jQuery.Color([0, 0, 0, 0.9]) }
+                                        { 'border-color': jQuery.Color([128, 128, 128, 0.9]) }
                                         , 'fast'
                                         );
                                 $(inner, this) .animate (
@@ -114,6 +125,9 @@ p {
                             }
                             , function () {
                                 $(lining, this) .fadeTo ('slow', 0.8);
+                                $(lining, this) .animate (
+                                        { 'background-color' : jQuery.Color([0, 0, 0, 0.2]) }
+                                        );
                                 $(border, this) .animate (
                                         { 'border-color': jQuery.Color([0, 0, 0, 0.6]) }
                                         , 'slow'
@@ -185,7 +199,9 @@ p {
 
 <article>
     <div class="underlay">
-        <div class="lining"></div>
+        <a href="ya.ru">
+            <div class="lining"></div>
+        </a>
     </div>
     <div class="underlay">
         <div class="border"></div>
@@ -200,7 +216,9 @@ p {
 
 <article>
     <div class="underlay">
-        <div class="lining"></div>
+        <a href="ya.ru">
+            <div class="lining"></div>
+        </a>
     </div>
     <div class="underlay">
         <div class="border"></div>
