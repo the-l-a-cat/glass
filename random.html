@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <title>Glass Design Show</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -16,7 +17,7 @@
 
 <body>
 
-<style>
+<style scoped>
 
 body {
     background: black;
@@ -24,17 +25,20 @@ body {
 }
 
 article {
+    vertical-align: top;
     display: inline-block;
     /* position: absolute; */
     margin: 10px;
     border: 1px solid #303030;
     padding: 0px;
 
+    overflow: hidden;
 }
 
 .link a {
     display: inline-block;
 
+    outline: none;
     border-style: solid;
     border-width: 1px;
     padding: 1px 3px;
@@ -73,6 +77,7 @@ article {
 
 .content {
     position: relative;
+    margin: 0px;
     padding: 20px;
 
     pointer-events: none;
@@ -143,9 +148,9 @@ p {
     }
 
     // Size quantifier.
-    function grid_counter (obj, margin, w_min, h_min) {
-        w = (w_min + 2*margin)
-        h = (h_min + 2*margin)
+    function grid_counter (obj, w_min, h_min) {
+        w = (w_min + parseInt (obj .css ('margin-left')) + parseInt (obj .css ('margin-right')))
+        h = (h_min + parseInt (obj .css ('margin-top')) + parseInt (obj .css ('margin-bottom')))
         w_count = ( ($ (window) .width()) / w >> 0);
         h_count = ( ($ (window) .height()) / h >> 0);
         if (w_count == 0) { w_count = 1 }
@@ -162,10 +167,11 @@ p {
 
     // Resize listener.
     $ (window) .resize ( function () {
-        grid = grid_counter ( $('article'), 20, 360, 220 );
+        grid = grid_counter ( $('article'), 360, 220 );
         size_quantifier ( $('article'), 20, grid ['w_count'], grid ['h_count'])
         size_quantifier ( $('.underlay .lining'), 20, grid ['w_count'], grid ['h_count']);
         size_quantifier ( $('.underlay .border'), 34, grid ['w_count'], grid ['h_count']);
+        size_quantifier ( $('.content '), 34, grid ['w_count'], grid ['h_count']);
     });
 
     // Initialization.
@@ -208,8 +214,8 @@ p {
     </div>
     <div class="content">
         <h4>I am the header</h4>
-        <span class="caption"><p>I am a paragraph</p></span>
-        <span class="caption"><p>I am another paragraph</p></span>
+        <div class="caption"><p>I am a paragraph</p></div>
+        <div class="caption"><p>I am another paragraph</p></div>
         <span class="link"><a href='google.com'>I am a link.</a></span>
     </div>
 </article>
@@ -225,11 +231,16 @@ p {
     </div>
     <div class="content">
         <h4>I am another header</h4>
-        <span class="caption"><p>I am a paragraph from another article.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>I am a paragraph from another article.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
         <span class="link"><a href='google.com'>I am a link.</a></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <span class="link"><a href='google.com'>I am a link.</a></span>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <span class="link"><a href='google.com'>I am a link.</a></span>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
         <span class="link"><a href='google.com'>I am a link.</a></span>
     </div>
 </article>
@@ -243,11 +254,11 @@ p {
     </div>
     <div class="content">
         <h4>I am another header</h4>
-        <span class="caption"><p>I am a paragraph from another article.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>I am a paragraph from another article.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
         <span class="link"><a href='google.com'>I am a link.</a></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
     </div>
 </article>
 
@@ -260,13 +271,13 @@ p {
     </div>
     <div class="content">
         <h4>I am another header</h4>
-        <span class="caption"><p>I am a paragraph from another article.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>I am a paragraph from another article.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
         <span class="link"><a href='google.com'>I am a link.</a></span>
         <span class="link"><a href='google.com'>I am a link.</a></span>
         <span class="link"><a href='google.com'>I am a link.</a></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
     </div>
 </article>
 
@@ -279,10 +290,10 @@ p {
     </div>
     <div class="content">
         <h4>I am another header</h4>
-        <span class="caption"><p>I am a paragraph from another article.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>I am a paragraph from another article.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
     </div>
 </article>
 
@@ -295,10 +306,10 @@ p {
     </div>
     <div class="content">
         <h4>I am another header</h4>
-        <span class="caption"><p>I am a paragraph from another article.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
-        <span class="caption"><p>There's more paragraphs.</p></span>
+        <div class="caption"><p>I am a paragraph from another article.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
+        <div class="caption"><p>There's more paragraphs.</p></div>
     </div>
 </article>
 
