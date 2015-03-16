@@ -10,4 +10,12 @@ Every clickable or otherwise important element will respond to hovers impressive
 
 * I will use thinly framed rectangular blocks exclusively.
 
+* Nothing moves. Nothing changes color.
+I will use fade, transparency and shadow. To move something, fade it out first.
 
+TODO:
+-----
+
+* No scroll.
+* No flow.
+* No selection on active elements.
