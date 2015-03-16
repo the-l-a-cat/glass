@@ -1,11 +1,6 @@
-ajax_args = 
-        'url': '/content/content.json'
-        'dataType': 'json'
-        'contentType': 'application/json'
-        'success': (data) -> console.log data['content'][0]['stub']
-
-$.ajax ajax_args
-
-
+app = angular.module 'app', []
+app.controller 'ctrl', ($scope, $http) ->
+    $http.get "/content/content.json"
+        .success (response) -> $scope.content = response
 
 

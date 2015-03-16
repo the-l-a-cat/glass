@@ -3,9 +3,11 @@ doctype html
 html(lang="en")
     include ./includes/head.jade
 
-    body(ng-app='app')
+    body
+        div(ng-app='app' ng-controller='ctrl')
             nav
                 ul
+                    li(ng-repeat="x in content.content" class="{{ x.stub }}") {{ x.text }}
 
             .content
 
