@@ -7,11 +7,11 @@ html(lang="en")
         .app(ng-app='app' ng-controller='ctrl')
             nav
                 ul
-                    li.nav-elem(ng-repeat="x in content.content" class="{{ x.id }}") {{ x.name }}
+                    li.nav-elem(ng-repeat="x in content" class="{{ x.stub }}") {{ x.header }}
 
             .content
-                article(ng-repeat="x in content.content")
-                    h2 {{ x.full_name }}
-                    section(ng-repeat="s in x.owner") {{ s }}
+                article(ng-repeat="x in content")
+                    h2 {{ x.header }}
+                    section(ng-repeat="s in x.text") {{ s }}
 
 
