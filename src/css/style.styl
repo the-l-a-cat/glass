@@ -1,0 +1,45 @@
+body
+    background-color black
+    color white
+
+block()
+    margin 2ex
+    padding 2ex 1em
+    lighter 0.2
+
+no-block()
+    margin 0
+    border none
+    padding 0
+
+lighter(transparency)
+    background-color rgba(255, 255, 255, transparency)
+
+inline()
+    display inline-block
+
+nav
+    block()
+
+nav ul
+    no-block()
+
+nav ul li
+    inline()
+    block()
+
+.content
+    block()
+    lighter 0.2
+
+article
+    block()
+    lighter 0.2
+
+section
+    block()
+    width 60em
+    lighter 0.2
+
+h2
+    color white
