@@ -7,10 +7,10 @@ html(lang="en")
         .app(ng-app='app' ng-controller='ctrl')
             nav
                 ul
-                    li.nav-elem(ng-repeat="x in content" class="{{ x.stub }}") {{ x.header }}
+                    li.nav-elem(ng-repeat="x in content" class="{{ x.stub }}" id="nav-elem-{{ x.stub }}" ng-click="x.show = ! x.show") {{ x.header }}
 
             .content
-                article(ng-repeat="x in content")
+                article.content-elem(ng-repeat="x in content" class="{{ x.stub }}" id="content-elem-{{ x.stub }}" ng-class="x.show ? 'visible' : 'hidden'")
                     h2 {{ x.header }}
                     section(ng-repeat="s in x.text") {{ s }}
 

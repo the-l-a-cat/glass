@@ -52,3 +52,4 @@ append = (obj, key, val) ->
         obj[key] = val
         obj
 
+

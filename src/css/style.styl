@@ -23,8 +23,26 @@ no-block()
 lighter(transparency)
     background-color rgba(255, 255, 255, transparency)
 
+darker(transparency)
+    background-color rgba(0, 0, 0, transparency)
+
 inline()
     display inline-block
+
+unselectable()
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+active()
+    unselectable()
+    &:hover
+        background black
+
+
 
 nav
     block()
@@ -36,6 +54,7 @@ nav ul li
     inline()
     block()
     header()
+    active()
 
 .content
     block()
@@ -44,11 +63,16 @@ nav ul li
 article
     block()
     lighter 0.2
+    position relative
+    display none
+
+article.visible
+    display block
 
 section
     block()
-    width 60em
-    lighter 0.2
+    background: black
+    darker 0.2
     text()
 
 h1,h2,h3,h4,h5,h6
