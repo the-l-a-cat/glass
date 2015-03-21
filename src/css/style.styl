@@ -2,6 +2,14 @@ body
     background-color black
     color white
 
+
+header()
+    font-family 'Roboto Condensed'
+    font-weight  700
+
+text()
+    font-family 'Roboto Slab'
+
 block()
     margin 2ex
     padding 2ex 1em
@@ -27,6 +35,7 @@ nav ul
 nav ul li
     inline()
     block()
+    header()
 
 .content
     block()
@@ -40,6 +49,8 @@ section
     block()
     width 60em
     lighter 0.2
+    text()
 
-h2
-    color white
+h1,h2,h3,h4,h5,h6
+    header()
+
