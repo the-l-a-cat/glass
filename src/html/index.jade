@@ -4,10 +4,14 @@ html(lang="en")
     include ./includes/head.jade
 
     body
-        div(ng-app='app' ng-controller='ctrl')
+        .app(ng-app='app' ng-controller='ctrl')
             nav
                 ul
-                    li(ng-repeat="x in content.content" class="{{ x.stub }}") {{ x.text }}
+                    li.nav-elem(ng-repeat="x in content.content" class="{{ x.id }}") {{ x.name }}
 
             .content
+                article(ng-repeat="x in content.content")
+                    h2 {{ x.full_name }}
+                    section(ng-repeat="s in x.owner") {{ s }}
+
 
