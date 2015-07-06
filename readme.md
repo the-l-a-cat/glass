@@ -36,3 +36,21 @@ Surely you may pick any domain from the list:
 https://git.wikimedia.org/raw/operations%2fmediawiki%2dconfig.git/HEAD/wmf%2dconfig%2fCommonSettings%2ephp#l764
 
 * Make sure origin global variable is set to the domain you choose.
+
+A note on HTTPS
+====================
+
+It is noted that Wikipedia API only responds via HTTPS since some recent times. So we needed to
+switch our tricky infrastructure to HTTPS as well.
+
+For this purpose, I changed include links to unspecified protocol and modified some of the
+javascript constants.
+
+You will however need a web server set up accordingly, with TLS key and certificate.
+To generate those, proceed as follows:
+* openssl genrsa -out privkey.pem
+* openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
+* please http-server -p 443 --ssl --key privkey.pem --cert cacert.pem build
+
+Now you have http server running in HTTPS and everything should respond correctly granted
+specified URL domain prefix matches the one in javascript code.

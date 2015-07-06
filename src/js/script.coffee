@@ -1,6 +1,6 @@
 
-origin = 'http://kindrom.wikiversity.org'
-api_endpoint = 'http://en.wikipedia.org/w/api.php'
+origin = 'https://kindrom.wikiversity.org'
+api_endpoint = 'https://en.wikipedia.org/w/api.php'
 api_url = (request) ->
     [api_endpoint, $.param append request, 'origin', origin] .join '?'
 content = {}
