@@ -1,0 +1,51 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+nav {
+  margin: 2ex;
+  padding: 2ex 1em;
+  background-color: rgba(255,255,255,0.2);
+}
+nav ul {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  margin: 2ex;
+  padding: 2ex 1em;
+  background-color: rgba(255,255,255,0.2);
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
+}
+.content {
+  margin: 2ex;
+  padding: 2ex 1em;
+  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.2);
+}
+article {
+  margin: 2ex;
+  padding: 2ex 1em;
+  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.2);
+}
+section {
+  margin: 2ex;
+  padding: 2ex 1em;
+  background-color: rgba(255,255,255,0.2);
+  width: 60em;
+  background-color: rgba(255,255,255,0.2);
+  font-family: 'Roboto Slab';
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
+}
