@@ -11,8 +11,8 @@ text()
     font-family 'Roboto Slab'
 
 block()
-    margin 2ex
-    padding 2ex 1em
+    margin 2rem
+    padding 1rem 1rem
     lighter 0.2
 
 no-block()
@@ -25,6 +25,24 @@ lighter(transparency)
 
 inline()
     display inline-block
+
+center(h w)
+    height h
+    width w
+    line-height h
+
+    text-align center
+    vertical-align middle
+
+dot(r)
+    float left
+    position relative
+    left 0 - (r / 3) * 2
+
+    center r r
+
+    border-radius r
+    padding r/3
 
 nav
     block()
@@ -54,3 +72,28 @@ section
 h1,h2,h3,h4,h5,h6
     header()
 
+hr
+    border none
+    border-bottom dotted 1rem
+    width 5rem
+    height 0
+
+ol
+    margin-left 0
+    padding-right 0
+    list-style-type none
+
+ol li
+    counter-increment counter
+
+ol li::before
+
+    content counter(counter)
+
+    dot 3rem
+    text()
+
+    lighter 0.2
+
+.try p
+    display none

@@ -10,8 +10,14 @@ html(lang="en")
                     li.nav-elem(ng-repeat="x in content.content" class="{{ x.stub }}") {{ x.stub }}
 
             .content
-                article(ng-repeat="x in content.content" class="{{ x.stub }}")
-                    h2 {{ x.stub }}
-                    section(class="{{ x.stub }}") {{ x.text }}
+                ol
+                    li(ng-repeat="x in content.content" class="{{ x.stub }}")
+
+                        article
+                            h2 {{ x.stub }}
+                            section(class="{{ x.stub }}") {{ x.text }}
+                            hr
 
 
+            .try
+                p lalafa
